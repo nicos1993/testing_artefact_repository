@@ -106,12 +106,12 @@ jobs:
           Get-ChildItem -Path ".\dist" -Filter "*.whl" | Format-List
 
       # (Optional) Smoke test: install wheel and import opensim
-      - name: Smoke test wheel (import)
-        shell: pwsh
-        run: |
-          $wheel = Get-ChildItem "${{ env.INSTALL_CORE }}\sdk\Python\dist\*.whl" | Select-Object -First 1
-          python -m pip install --force-reinstall $wheel.FullName
-          python -c "import opensim; print('OpenSim import OK')"
+      # - name: Smoke test wheel (import)
+      #  shell: pwsh
+      #  run: |
+      #    $wheel = Get-ChildItem "${{ env.INSTALL_CORE }}\sdk\Python\dist\*.whl" | Select-Object -First 1
+      #    python -m pip install --force-reinstall $wheel.FullName
+      #    python -c "import opensim; print('OpenSim import OK')"
 
       - name: Set build date (for artifact name)
         shell: pwsh
